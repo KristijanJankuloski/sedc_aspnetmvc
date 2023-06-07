@@ -1,8 +1,8 @@
-﻿using FirstMVCApp.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using PizzaApp.Models;
 using System.Diagnostics;
 
-namespace FirstMVCApp.Controllers
+namespace PizzaApp.Controllers
 {
     public class HomeController : Controller
     {
@@ -15,11 +15,20 @@ namespace FirstMVCApp.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogInformation("Index Page visited");
             return View();
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
         {
             return View();
         }
