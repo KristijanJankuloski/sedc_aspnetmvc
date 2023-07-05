@@ -50,5 +50,14 @@ namespace PizzaApp.Mappers
                 Price = pizzaDb.Price
             };
         }
+
+        public static PizzaSelectListViewModel ToSelectListViewModel(this Pizza pizza)
+        {
+            return new PizzaSelectListViewModel
+            {
+                Id = pizza.Id,
+                Name = pizza.Name,
+            };
+        }
     }
 }

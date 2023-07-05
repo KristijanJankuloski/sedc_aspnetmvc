@@ -9,6 +9,6 @@ namespace PizzaApp.Services.Interfaces
 {
     public interface IOrderService
     {
-        Task CreateOrder(OrderViewModel order);
+        Task CreateOrder(OrderCreateViewModel model);
     }
 }

@@ -7,6 +7,7 @@
         Task<List<PizzaListViewModel>> GetPizzasForCards();
 
         Task<PizzaDetailsViewModel> GetPizzaDetails(int id);
+        Task<List<PizzaSelectListViewModel>> GetAllForSelectList();
 
         Task<int> DeletePizzaById(int id);
 

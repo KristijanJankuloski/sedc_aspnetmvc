@@ -10,5 +10,6 @@ namespace PizzaApp.Services.Interfaces
     public interface IUserService
     {
         Task CreateUser(UserViewModel user);
+        Task<List<UserSelectListViewModel>> GetAllSelectList();
     }
 }

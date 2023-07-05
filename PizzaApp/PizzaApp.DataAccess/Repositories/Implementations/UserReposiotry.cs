@@ -48,6 +48,12 @@ namespace PizzaApp.DataAccess.Repositories.Implementations {
             await _context.SaveChangesAsync();
         }
 
+        public async Task<User> InsertAndReturn(User entity)
+        {
+            var user = await _context.Users.AddAsync(entity);
+            return user.Entity;
+        }
+
         public async Task Update(User entity)
         {
             _context.Users.Update(entity);

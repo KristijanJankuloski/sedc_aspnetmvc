@@ -42,6 +42,12 @@
             await _pizzaRepository.Update(pizzaDb);
         }
 
+        public async Task<List<PizzaSelectListViewModel>> GetAllForSelectList()
+        {
+            List<Pizza> pizzas = await _pizzaRepository.GetAll();
+            return pizzas.Select(p => p.ToSelectListViewModel()).ToList();
+        }
+
         public async Task<PizzaDetailsViewModel> GetPizzaDetails(int id)
         {
             Pizza pizzaDb = await _pizzaRepository.GetById(id);

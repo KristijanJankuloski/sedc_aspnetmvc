@@ -22,5 +22,11 @@ namespace PizzaApp.Services.Implementations
         {
             await _userRepository.Insert(user.ToUser());
         }
+
+        public async Task<List<UserSelectListViewModel>> GetAllSelectList()
+        {
+            List<User> user = await _userRepository.GetAll();
+            return user.Select(u => u.ToUserSelectList()).ToList();
+        }
     }
 }

@@ -28,6 +28,7 @@
         {
             services.AddTransient<IPizzaService, PizzaService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IOrderService, OrderService>();
         }
     };
 }

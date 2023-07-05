@@ -48,6 +48,12 @@
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task<Pizza> InsertAndReturn(Pizza entity)
+        {
+            var pizza = await _dbContext.Pizzas.AddAsync(entity);
+            return pizza.Entity;
+        }
+
         public async Task Update(Pizza entity)
         {
             _dbContext.Pizzas.Update(entity);

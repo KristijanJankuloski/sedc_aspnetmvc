@@ -11,6 +11,8 @@
 
         Task Insert(T entity);
 
+        Task<T> InsertAndReturn(T entity);
+
         Task Update(T entity);
 
         Task<int> DeleteById(int id);

@@ -1,0 +1,50 @@
+﻿@model OrderCreateViewModel
+@{
+    ViewData["Title"] = "Order now";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" asp-action="Create">
+                <div class="mb-2">
+                    <div class="row">
+                        <div class="col">
+                            <label asp-for="UserId" class="form-label"></label>
+                            <select asp-for="UserId" class="form-select" asp-items="@(new SelectList(ViewBag.AllUsers, "Id", "Name"))"></select>
+                            <span asp-validation-for="UserId"></span>
+                        </div>
+                        <div class="col-2">
+                            <a asp-controller="User" asp-action="Create" class="btn btn-outline-success">or create a new user</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Location" class="form-label"></label>
+                    <input asp-for="Location" type="text" class="form-control" />
+                </div>
+                <div class="mb-2" id="pizzaList">
+                    <button type="button" class="btn btn-sm btn-primary mb-2" id="addPizzaBtn" onclick="addPizza()">add pizza</button>
+                    <label asp-for="PizzaIds" class="form-label"></label>
+                    <select class="form-select mb-2" name="PizzaIds">
+                        @foreach (var pizza in ViewBag.AllPizzas)
+                        {
+                            <option value="@pizza.Id">@pizza.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="PaymentMethod" class="form-label"></label>
+                    <select asp-for="PaymentMethod" class="form-select" asp-items="@Html.GetEnumSelectList<PaymentMethodEnum>()"></select>
+                </div>
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-success">Make order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/CreateOrder.js" type="text/javascript"></script>
+}

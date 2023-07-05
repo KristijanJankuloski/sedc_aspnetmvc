@@ -31,5 +31,14 @@ namespace PizzaApp.Mappers
                 Address = model.Address,
             };
         }
+
+        public static UserSelectListViewModel ToUserSelectList(this User user)
+        {
+            return new UserSelectListViewModel
+            {
+                Id = user.Id,
+                Name = $"{user.FirstName} {user.LastName} - {user.Address}",
+            };
+        }
     }
 }
